@@ -11,7 +11,7 @@ env:
   TARGET_HOST: ssh.polouis.com
   OVH_KEY: ${{ secrets.OVH_KEY }}
   OVH_KEYSCAN: ${{ secrets.OVH_KEYSCAN }}
-  COMPOSE_PARAMIKO_SSH: 1
+#  COMPOSE_PARAMIKO_SSH: 1
 
 jobs:
 
