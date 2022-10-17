@@ -21,7 +21,12 @@ jobs:
         echo "${{ secrets.OVH_KEYSCAN }}" >> ~/.ssh/known_hosts
         echo "${{ secrets.OVH_KEY }}" | tr -d '\r' > ~/.ssh/id_rsa
         sudo chmod 600 ~/.ssh/id_rsa
-    
+
+    - name: Stop target container pull and launch new version
+      run: |
+        docker context create --docker host=ssh://deploy@ssh.polouis.com --description="OVH Server" ovh-server
+        docker context use ovh-server
+
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker-compose build hello
