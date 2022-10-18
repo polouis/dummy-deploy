@@ -9,8 +9,8 @@ on:
 
 env:
   TARGET_HOST: ssh.polouis.com
-  CLIENT_KEY: ${{ secrets.CLIENT_KEY }}
-  SERVER_KEY: ${{ secrets.SERVER_KEY }}
+  CLIENT_PRIVATE_KEY: ${{ secrets.CLIENT_PRIVATE_KEY }}
+  SERVER_PUBLIC_KEY: ${{ secrets.SERVER_PUBLIC_KEY }}
 #  COMPOSE_PARAMIKO_SSH: 1
 
 jobs:
@@ -25,8 +25,8 @@ jobs:
       run: |
         mkdir -p ~/.ssh
         chmod 0700 ~/.ssh
-        echo "$SERVER_KEY" >> ~/.ssh/known_hosts
-        echo $CLIENT_KEY | tr -d '\r' > ~/.ssh/id_ed25519
+        echo "$SERVER_PUBLIC_KEY" >> ~/.ssh/known_hosts
+        echo $CLIENT_PRIVATE_KEY | tr -d '\r' > ~/.ssh/id_ed25519
         sudo chmod 600 ~/.ssh/id_ed25519
 
     - uses: actions/checkout@v3
