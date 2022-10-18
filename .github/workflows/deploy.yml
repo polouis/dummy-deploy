@@ -35,5 +35,5 @@ jobs:
         docker context create --docker host=ssh://deploy@ssh.polouis.com --description="OVH Server" ovh-server
         docker context use ovh-server
         docker info
-        docker-compose build hello
+        docker-compose --context ovh-server build hello
         docker compose up --no-deps -d hello
