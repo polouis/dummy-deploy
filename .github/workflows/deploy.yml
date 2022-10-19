@@ -7,7 +7,6 @@ env:
   TARGET_HOST: ssh.polouis.com
   CLIENT_PRIVATE_KEY: ${{ secrets.CLIENT_PRIVATE_KEY }}
   SERVER_PUBLIC_KEY: ${{ secrets.SERVER_PUBLIC_KEY }}
-#  COMPOSE_PARAMIKO_SSH: 1
 
 jobs:
 
@@ -33,10 +32,7 @@ jobs:
       run: |
         docker context create --docker host=ssh://deploy@ssh.polouis.com --description="OVH Server" ovh-server
         docker context use ovh-server
-        docker info
+#        docker info
   
     - name: Restart container
       run: docker-compose up --no-deps -d hello-dummy
-#        docker stop hello-dummy
-#        docker rm hello-dummy
-#        docker run -p 80:80 --name hello-dummy -d hello-dummy 
