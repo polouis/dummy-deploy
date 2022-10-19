@@ -17,9 +17,7 @@ jobs:
     steps:
 
     - uses: actions/checkout@v3
-
-#    - name: Checkout and build
-#      run: docker-compose build
+    - name: Checkout and build
 
     - name: Prepare ssh configuration
       run: |
@@ -34,6 +32,6 @@ jobs:
         docker context create --docker host=ssh://deploy@ssh.polouis.com --description="OVH Server" ovh-server
         docker context use ovh-server
 #        docker info
-  
+
     - name: Restart container
       run: docker-compose up --no-deps -d hello-dummy
