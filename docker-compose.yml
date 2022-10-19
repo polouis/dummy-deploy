@@ -1,8 +1,14 @@
 version: '3.6'
 
 services:
-  hello:
+  hello-dummy:
     build: .
     image: hello-dummy
     ports:
-      - 80:80
+      - 80
+    networks:
+      - ubuntu_default
+
+networks:
+  ubuntu_default:
+    external: true
