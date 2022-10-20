@@ -18,7 +18,3 @@ ssh-keyscan -H ssh.myserver.com
 ## Set Github secrets
 - Put the client public ssh key into a docker secret named `CLIENT_PRIVATE_KEY`.
 - Put the server private key into a secret named `SERVER_PUBLIC_KEY`.
-```
-docker-compose build hello
-docker-compose up --no-deps -d hello
-```
