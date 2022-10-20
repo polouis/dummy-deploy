@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   hello-dummy:
-    image: ghcr.io/polouis/dummy-deploy:main
+    image: ghcr.io/polouis/dummy-deploy:latest
     ports:
       - 80
     networks:
